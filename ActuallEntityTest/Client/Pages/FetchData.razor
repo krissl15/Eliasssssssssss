@@ -1,0 +1,26 @@
+﻿@page "/fetchdata"
+@using ActuallEntityTest.Shared.ViewModels
+@inject HttpClient Http
+
+<h1>Weather forecast</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+@if (forecasts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <h1>@forecasts.First().Name</h1>
+}
+
+@code {
+    private ProductViewModel[] forecasts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        forecasts = await Http.GetJsonAsync<ProductViewModel[]>("Product/GetAllProducts");
+    }
+
+}

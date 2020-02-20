@@ -1,0 +1,36 @@
+﻿@page "/counter"
+@using ActuallEntityTest.Shared;
+@inject HttpClient Http
+@using ActuallEntityTest.Shared.Models;
+
+<h1>shitface</h1>
+
+<p>Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<h1>fucker</h1>
+ <table class="table">
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+    </table>
+
+
+
+@code {
+    public int currentCount = 0;
+
+    ProductModel[] products;
+
+    private void IncrementCount() {
+        currentCount++;
+    }
+
+
+}
